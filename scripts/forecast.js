@@ -1,4 +1,6 @@
-const key = "4fx4ZtXzrCyaJ7H33USQmUanSARbUo3B";
+const key = "ERTELpgG3HqWho2NbOsr2OrcciPkLyhl";
+let id;
+let city;
 
 const getCity = async (city) => {
   const base = "http://dataservice.accuweather.com/locations/v1/cities/search";
@@ -6,10 +8,10 @@ const getCity = async (city) => {
 
   const response = await fetch(base + query);
   const data = await response.json();
-  return data;
+  return data[0];
 };
 
-const getConditions = async (id) => {
+const getWeather = async (id) => {
   const base = "http://dataservice.accuweather.com/currentconditions/v1/";
   const query = `${id}?apikey=${key}`;
 
@@ -17,13 +19,3 @@ const getConditions = async (id) => {
   const data = await response.json();
   return data[0];
 };
-
-getConditions(329260);
-
-getCity("manchester")
-  .then((data) => {
-    return data[0].Key;
-  })
-  .catch((error) => {
-    console.log(error);
-  });

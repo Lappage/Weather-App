@@ -17,16 +17,15 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 footer {
-  padding-top: 50px;
-  padding-bottom: 15px;
   color: grey;
   margin-top: auto;
   letter-spacing: normal;
   font-size: 1.2em;
+  padding-bottom: 20px;
 }
 
 footer a {
@@ -35,9 +34,17 @@ footer a {
 }
 
 .container {
-  max-width: 500px;
+  max-width: 400px;
 }
 
 .change-location {
   padding: 30px;
+}
+
+.icon {
+  position: relative;
+  top: -50px;
+  border-radius: 50%;
+  width: 100px;
+  margin-bottom: -50px;
 }
