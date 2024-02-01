@@ -48,3 +48,14 @@ footer a {
   width: 100px;
   margin-bottom: -50px;
 }
+
+.list-group {
+  position: absolute;
+  z-index: 1;
+  width: 310px;
+  cursor: pointer;
+}
+
+form {
+  width: 100%;
+}

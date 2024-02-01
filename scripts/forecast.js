@@ -1,4 +1,4 @@
-const key = "ERTELpgG3HqWho2NbOsr2OrcciPkLyhl";
+const key = "	V7DfOSjg3TGUqWSF4fzTHkoadiBSwpPZ";
 let id;
 let city;
 
@@ -18,4 +18,21 @@ const getWeather = async (id) => {
   const response = await fetch(base + query);
   const data = await response.json();
   return data[0];
+};
+
+const autoComplete = async (q) => {
+  const base = "http://dataservice.accuweather.com/locations/v1/cities/autocomplete";
+  const query = `?apikey=${key}&q=${q}`;
+
+  const response = await fetch(base + query);
+  const data = await response.json();
+
+  return data.map((item) => {
+    return {
+      town: item.LocalizedName,
+      city: item.AdministrativeArea.LocalizedName,
+      country: item.Country.LocalizedName,
+      key: item.Key,
+    };
+  });
 };

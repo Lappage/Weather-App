@@ -3,12 +3,9 @@ const card = document.querySelector(".card");
 const details = document.querySelector(".details");
 const time = document.querySelector(".time");
 const icon = document.querySelector(".icon img");
+const list = document.querySelector(".suggestions");
 
 const updateUI = (data) => {
-  // const cityData = data.cityData;
-  // const weather = data.weather;
-
-  // destructured properties
   const { cityData, weather } = data;
 
   //update details template
@@ -68,3 +65,55 @@ cityForm.addEventListener("submit", (e) => {
       alert("Unable to fetch data :(");
     });
 });
+
+// const searchBox = cityForm.city;
+// const suggestions = [];
+// searchBox.addEventListener("keyup", (search) => {
+//   if (!search.target.value.trim()) {
+//     list.innerHTML = "";
+//   }
+
+//   autoComplete(search.target.value).then((data) => {
+//     for (i = 0; i < 5; i++) {
+//       suggestions.push({ town: data[i].town, city: data[i].city, country: data[i].country, key: data[i].key });
+
+//       // console.log(data);
+//     }
+
+//     list.innerHTML = `
+//       <a class="list-group-item list-group-item-action 0">
+//       ${suggestions[0].town} <br />
+//       ${suggestions[0].city} <br />
+//       ${suggestions[0].country}
+//     </a>
+//     <a class="list-group-item list-group-item-action 1">
+//     ${suggestions[1].town} <br />
+//     ${suggestions[1].city} <br />
+//     ${suggestions[1].country}
+//   </a>
+//   <a class="list-group-item list-group-item-action 2">
+//   ${suggestions[2].town} <br />
+//   ${suggestions[2].city} <br />
+//   ${suggestions[2].country}
+// </a>
+// <a class="list-group-item list-group-item-action 3">
+// ${suggestions[3].town} <br />
+// ${suggestions[3].city} <br />
+// ${suggestions[3].country}
+// </a>
+// <a class="list-group-item list-group-item-action 4">
+// ${suggestions[4].town} <br />
+// ${suggestions[4].city} <br />
+// ${suggestions[4].country}
+// </a>
+//       `;
+//   });
+// });
+
+// list.addEventListener("click", (e) => {
+//   for (i = 0; i < 5; i++) {
+//     if (e.target.classList.contains(i)) {
+//       console.log(suggestions[i].key);
+//     }
+//   }
+// });
