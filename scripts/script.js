@@ -4,6 +4,7 @@ const details = document.querySelector(".details");
 const time = document.querySelector(".time");
 const icon = document.querySelector(".icon img");
 const list = document.querySelector(".suggestions");
+const forecast = new Forecast();
 
 const updateUI = (data) => {
   const { cityData, weather } = data;
@@ -39,16 +40,6 @@ const updateUI = (data) => {
 
 cityForm.city.focus(); // focus the text box
 
-const updateCity = async (city) => {
-  const cityData = await getCity(city);
-  const weather = await getWeather(cityData.Key);
-
-  return {
-    cityData,
-    weather,
-  };
-};
-
 cityForm.addEventListener("submit", (e) => {
   e.preventDefault(); // Stops the page from refreshing on submit (default browser action)
 
@@ -57,7 +48,8 @@ cityForm.addEventListener("submit", (e) => {
   cityForm.reset();
 
   // update ui with new city
-  updateCity(city)
+  forecast
+    .updateCity(city)
     .then((data) => {
       updateUI(data);
     })
